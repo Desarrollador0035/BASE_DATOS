@@ -215,6 +215,38 @@ Este operador de utiliza en una claúsula WHERE para buscar un patrón específi
 >>
 ## OPERADOR BETWEEN
 <div>Permite seleccionar valores dentro de un rango determinado. Los valores pueden ser numeros,texto o fechas, incluye vlores inicial y final.</div>
+<b>SELECT column_name FROM table_name WHERE column_name BETWEEN value1 AND value2;</b><br>
+<b>SELECT * FROM Products WHERE Price BETWEEN 10 AND 20 AND CategoryID NOT IN (1,2,3);</b><br>
+<b>SELECT * FROM Products WHERE ProductName BETWEEN "Carnarvon Tigers" AND "CHef Anton' s Cajun Seasoning" ORDER BY ProductName</b><br>
+<b>SELECT * FROM Orders WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';</b><br>
+
+## OPERADOR AS(ALIAS)
+<div>Se utiliza para dar nombre temporal a una tabla o a una columna de una tabla.</div>
+<div>Los alias duran mientras exista la columna</div><br>
+
+#### COLUMNA
+<b>Columna: SELECT column_name AS alias_name FROM table_name</b><br>
+<div>Se crea un alias que combina 4 columnas : <b>CustomerName, CONCAT_WS(',',Address,PostalCode,City,Country) AS Address FROM Customers;</b>
+<p>Funcion CONCAT_WS(separator, expresion1,expresion2,expresion3,...)</p></div><br>
+
+#### TABLAS
+<div><b>Tabla: SELECT column_name FROM table_name AS alias_name;</b><br>
+  
+<b> SELECT o.OrderID, o.OrderDate, c.CustomerName FROM Customers AS c, Orders AS o WHERE c.CustomerName = 'Around the Horn' AND c.CustomerID=o.CustomerID;</b><br><br>
+  <ul>SELECT o.OrderID, o.OrderDate, c.CustomerName : Indica las columnas seleccionadas </ul>
+  <ul>FROM Customers AS c, Orders AS o : Se le asigna alias c y o para Customers y Orders</ul>
+  <ul>WHERE c.CustomerName = 'Around the Horn' AND c.CustomerID=o.CustomerID : la clausula WHERE filtra las filas que cumplen las condiciones. EL valor de la columan CustomerName sea igual a
+  Around the Horn y que el valor en la columna CustomerID de ambas tablas sea igual. La relacion de tablas se establece a traves del campo Customer ID</ul>
+  
+</div>
+
+
+
+
+
+
+
+
 
 
 
