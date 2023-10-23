@@ -12,8 +12,12 @@ Declaración SELECT , se utiliza para seleccionar datos de una base de datos.
 
 SELECT DISTINCT : Devuelve valores distintos.<br>
 **SELECT DISTINCT column1,column2 FROM table_name;** <br>
-**DISTINCT** : palabra clave que eliminara ciegamente las filas duplicadas, busca valores unicos de la columna
+**DISTINCT** : palabra clave que eliminara ciegamente las filas duplicadas, busca valores unicos de la columna, optmizaciones de rendimiento.
+**SELECT DISTINCT column, another_column FROM mytable WHERE codition;**
 >SELECT COUNT(DISTINCT Country) FROM Customers;
+>SELECT column1,column2 FROM table_name ORDER BY colu1,colum2 DESC;
+>SELECT DISTINCT(director) FROM movies ORDER BY director;
+>
 
 ## WHERE 
 Se utiliza para filtrar registros, extraer solo aquello regitros que cumpleuna condicion especifica, devuelve ciertos valores.
@@ -53,7 +57,7 @@ incluye el texto<br>
 >SELECT * FROM movies WHERE director NOT LIKE "%%";<br>
 >SELECT * FROM movies WHERE title LIKE "%wall-%" <br>
 
-**SELECT DISTINCT column, another_column FROM mytable WHERE codition;**
+
 >
 ## ORDER BY
 Es una palabra clave que se utiliza para ordenar el conjunto de resultados en orden ascendente o descendente.<br>
@@ -76,6 +80,7 @@ Los ordena de forma predeterminada. Para ordenar en orden descendete se utiliza 
 <br>
 **LIMIT** : Reduce el numero de filas a devolver(opcional), limita el numer ode resultados, funcionas despues que la hallan ordenado, limitar es clave de optimización. <br>
 **OFFSET** : especifica desde donde empieza a contar el numero de filas. <br>
+
 >SELECT DISTINCT director FROM movies ORDER BY director;
 >
 >SELECT * FROM movies ORDER BY year DESC LIMIT 4;
